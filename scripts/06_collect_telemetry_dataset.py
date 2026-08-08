@@ -12,9 +12,14 @@ from datetime import datetime
 PROMETHEUS_URL = "http://localhost:9090"
 
 SERVICES = [
-    "ts-train-service", "ts-user-service", "ts-order-service",
-    "ts-station-service", "ts-travel-service", "ts-payment-service",
-    "ts-route-service", "ts-price-service", "ts-ticket-office-service"
+    "ts-ui-dashboard",
+    "ts-user-service",
+    "ts-train-service",
+    "ts-route-service",
+    "ts-order-service",
+    "ts-payment-service",
+    "ts-inventory-service",
+    "ts-station-service"
 ]
 
 def query_prometheus(query: str):
@@ -32,7 +37,7 @@ def collect_metrics_snapshot():
     timestamp = datetime.now().isoformat()
     
     # Query Pod CPU Usage
-    cpu_data = query_prometheus('sum(rate(container_cpu_usage_seconds_total{container!=""}[1m])) by (pod, namespace)')
+    cpu_data = query_prometheus('sum(rate(container_cpu_usage_seconds_total{container!=""}[5m])) by (pod, namespace)')
     for item in cpu_data:
         pod_name = item["metric"].get("pod", "unknown")
         val = float(item["value"][1])
