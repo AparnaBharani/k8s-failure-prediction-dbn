@@ -85,7 +85,7 @@ if __name__ == "__main__":
         print(f"Collecting tick {tick+1}/60...")
         df_tick = collect_metrics_snapshot()
         dataset_df = pd.concat([dataset_df, df_tick], ignore_index=True)
-        time.sleep(60)
+        time.sleep(1)
 
-    dataset_df.to_csv("trainticket_telemetry_dataset.csv", index=False)
-    print("Saved telemetry dataset to 'trainticket_telemetry_dataset.csv'!")
+    dataset_df.to_csv("data/raw/healthy/trainticket_telemetry_dataset.csv", index=False)
+    print("Saved telemetry dataset to 'data/raw/healthy/trainticket_telemetry_dataset.csv'!")
