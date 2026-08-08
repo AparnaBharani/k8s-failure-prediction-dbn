@@ -1,0 +1,16 @@
+# PREFACE-DDN Python Dependencies
+torch>=2.0.0
+polars>=0.18.0
+pandas>=2.0.0
+numpy>=1.24.0
+jax>=0.4.10
+jaxlib>=0.4.10
+pgmpy>=0.1.22
+networkx>=3.1
+prometheus-api-client>=0.5.3
+requests>=2.31.0
+locust>=2.15.0
+scikit-learn>=1.2.2
+matplotlib>=3.7.1
+mlflow>=2.3.0
+pyyaml>=6.0
